@@ -1,0 +1,8 @@
+dao\SeleniumTestInsert.class
+dao\SeleniumTest.class
+dao\DanhsachDAOImpTest.class
+dao\TestUpdateDiem.class
+dao\DiemmonhocDAOImpTest.class
+dao\MonhocDAOImpTest.class
+dao\SeleniumTestUpdate.class
+dao\DAOImpTest.class

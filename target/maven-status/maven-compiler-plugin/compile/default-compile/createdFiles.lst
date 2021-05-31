@@ -1,0 +1,13 @@
+model\Giangvien.class
+dao\DanhsachDAO.class
+model\Sinhvien.class
+model\Diemmonhoc.class
+model\Lophoc.class
+com\mycompany\mavenproject7\resources\JavaEE8Resource.class
+model\Monhoc.class
+servlet\DiemmonhocServlet.class
+dao\DanhsachDAOImp.class
+dao\DiemmonhocDAOImp.class
+com\mycompany\mavenproject7\JAXRSConfiguration.class
+dao\DiemmonhocDAO.class
+model\Hocky.class
