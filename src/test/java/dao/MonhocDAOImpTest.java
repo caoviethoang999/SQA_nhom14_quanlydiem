@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Monhoc;
@@ -43,6 +44,32 @@ public class MonhocDAOImpTest {
     }
 
     @Test
+    public void testGetMonHocByID() throws SQLException {
+        System.out.println("GetMonhocByID");
+        monhoc = new Monhoc();
+        monhocDAOImp = new MonhocDAOImp();
+        monhoc = monhocDAOImp.getMonHocByID("INT1449");
+        assertEquals("INT1449",monhoc.getMamonhoc());
+        assertEquals("Phát triển ứng dụng cho các thiết bị di động",monhoc.getTenmonhoc());
+        monhoc = monhocDAOImp.getMonHocByID("TEL1409");
+        assertEquals("TEL1409",monhoc.getMamonhoc());
+        assertEquals("Internet và giao thức",monhoc.getTenmonhoc());
+        monhoc = monhocDAOImp.getMonHocByID("TEL1403");
+        assertEquals("TEL1403",monhoc.getMamonhoc());
+        assertEquals("Các mạng thông tin vô tuyến",monhoc.getTenmonhoc());
+    }
+
+    @Test
+    public void testGetMonHocByIDException() throws SQLException {
+        System.out.println("GetMonhocByID");
+        monhoc = new Monhoc();
+        monhocDAOImp = new MonhocDAOImp();
+        monhoc = monhocDAOImp.getMonHocByID("INT1500");
+        assertEquals(null,monhoc.getMamonhoc());
+        assertEquals(null,monhoc.getTenmonhoc());
+    }
+
+    @Test
     public void testSelectMonhoc() throws Exception {
         System.out.println("selectMonhoc");
         monhoc=new Monhoc();
@@ -53,15 +80,5 @@ public class MonhocDAOImpTest {
         assertEquals("INT1448", test.getMamonhoc());
         assertEquals("Phát triển phần mềm hướng dịch vụ", test.getTenmonhoc());
     }
-        @Test
-    public void testSelectMonhocWrong() throws Exception {
-        System.out.println("selectMonhoc");
-        monhoc=new Monhoc();
-        monhocDAOImp=new MonhocDAOImp();
-        List<Monhoc> list = monhocDAOImp.selectMonhoc();
-        assertEquals(5, list.size());
-        Monhoc test = list.get(0);
-        assertEquals("INT1447", test.getMamonhoc());
-        assertEquals("Cấu trúc dữ liệu giải thuật", test.getTenmonhoc());
-    }
+
 }

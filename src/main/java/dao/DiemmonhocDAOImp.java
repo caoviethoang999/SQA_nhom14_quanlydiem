@@ -143,21 +143,31 @@ public class DiemmonhocDAOImp implements DiemmonhocDAO {
     @Override
     public boolean updateDiem(Diemmonhoc diemmonhoc) throws SQLException {
         boolean rowUpdated;
+
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_DIEM_SQL);) {
-              if(diemmonhoc.getDiemcc()>=0&&diemmonhoc.getDiemcc()<=10){
-            preparedStatement.setDouble(1, diemmonhoc.getDiemcc());
+            if(diemmonhoc.getDiemcc()>=0&&diemmonhoc.getDiemcc()<=10){
+                preparedStatement.setDouble(1, diemmonhoc.getDiemcc());
+            }
+            else {
+                return false;
             }
             if(diemmonhoc.getDiemgiuaky()>=0&&diemmonhoc.getDiemgiuaky()<=10){
-            preparedStatement.setDouble(2, diemmonhoc.getDiemgiuaky());
+                preparedStatement.setDouble(2, diemmonhoc.getDiemgiuaky());
+            }
+            else {
+                return false;
             }
             if(diemmonhoc.getDiemcuoiky()>=0&&diemmonhoc.getDiemcuoiky()<=10){
-            preparedStatement.setDouble(3, diemmonhoc.getDiemcuoiky());
+                preparedStatement.setDouble(3, diemmonhoc.getDiemcuoiky());
             }
-             preparedStatement.setDouble(4, Math.ceil(((diemmonhoc.getDiemcc()*10/100 + diemmonhoc.getDiemgiuaky()*30/100 +diemmonhoc.getDiemcuoiky()*60/100)*100)/100));
-             preparedStatement.setString(5, diemmonhoc.getMadiemmonhoc() );
-            rowUpdated = preparedStatement.executeUpdate() > 0;
-        } 
-        return rowUpdated;
+            else {
+                return false;
+            }
+            preparedStatement.setDouble(4, Math.ceil(((diemmonhoc.getDiemcc()*10/100 + diemmonhoc.getDiemgiuaky()*30/100 +diemmonhoc.getDiemcuoiky()*60/100)*100)/100));
+            preparedStatement.setString(5, diemmonhoc.getMadiemmonhoc() );
+            preparedStatement.executeUpdate();
+            return true;
+        }
     }
      private void printSQLException(SQLException ex) {
         for (Throwable e: ex) {

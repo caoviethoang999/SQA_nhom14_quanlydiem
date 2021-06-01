@@ -10,12 +10,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mavenproject7" target="9" />
+      <module name="mavenproject7" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="mavenproject7" options="-endorseddirs C:\Users\Tan\Downloads\mavenproject7\target/endorsed" />
+      <module name="mavenproject7" options="-endorseddirs D:\Project\SQA\SQA_nhom14_quanlydiem\target/endorsed" />
     </option>
   </component>
 </project>

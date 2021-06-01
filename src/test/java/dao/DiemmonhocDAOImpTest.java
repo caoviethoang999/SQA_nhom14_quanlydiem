@@ -38,152 +38,6 @@ public class DiemmonhocDAOImpTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void testInsertDiem() throws SQLException{
-        Connection connection = new DAOImp().createConnection();
-        connection.setAutoCommit(false);
-        System.out.println("insertDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        diemmonhoc.setMadiemmonhoc("diem92");
-        diemmonhoc.setMamonhoc("INT1448");
-        diemmonhoc.setMasinhvien("B17DCVT143");
-        diemmonhoc.setMahocky("hk3");
-        diemmonhoc.setDiemcc(10);
-        diemmonhoc.setDiemgiuaky(8);
-        diemmonhoc.setDiemcuoiky(3);
-        assertEquals("diem92", diemmonhoc.getMadiemmonhoc());
-        assertEquals("INT1448", diemmonhoc.getMamonhoc());
-        assertEquals("B17DCVT143", diemmonhoc.getMasinhvien());
-        assertEquals("hk3", diemmonhoc.getMahocky());
-        assertEquals(10, diemmonhoc.getDiemcc(),0);
-        assertEquals(8, diemmonhoc.getDiemgiuaky(),0);
-        assertEquals(3, diemmonhoc.getDiemcuoiky(),0);
-        assertEquals(5.2, diemmonhoc.getDiemtrungbinh(),0);
-        diemmonhocDAOImp.insertDiem(diemmonhoc);
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(11, list.size());
-        connection.rollback();
-    }
-    @Test
-    public void testInsertDiemWrong() throws SQLException{
-        Connection connection = new DAOImp().createConnection();
-        connection.setAutoCommit(false);
-        System.out.println("insertDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        diemmonhoc.setMadiemmonhoc("diem92");
-        diemmonhoc.setMamonhoc("INT1448");
-        diemmonhoc.setMasinhvien("B17DCVT143");
-        diemmonhoc.setMahocky("hk3");
-        diemmonhoc.setDiemcc(-1);
-        diemmonhoc.setDiemgiuaky(4);
-        assertEquals("diem92", diemmonhoc.getMadiemmonhoc());
-        assertEquals("INT1448", diemmonhoc.getMamonhoc());
-        assertEquals("B17DCVT143", diemmonhoc.getMasinhvien());
-        assertEquals("hk3", diemmonhoc.getMahocky());
-        assertEquals(-1, diemmonhoc.getDiemcc(),0);
-        assertEquals(4, diemmonhoc.getDiemgiuaky(),0);
-        diemmonhocDAOImp.insertDiem(diemmonhoc);
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(11, list.size());
-        connection.rollback();
-    }
-     @Test
-    public void testInsertDiemWrong2() throws SQLException{
-        Connection connection = new DAOImp().createConnection();
-        connection.setAutoCommit(false);
-        System.out.println("insertDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        diemmonhoc.setMadiemmonhoc("diem92");
-        diemmonhoc.setMamonhoc("INT1448");
-        diemmonhoc.setMasinhvien("B17DCVT143");
-        diemmonhoc.setMahocky("hk3");
-        diemmonhoc.setDiemcc(4);
-        diemmonhoc.setDiemgiuaky(-2);
-        assertEquals("diem92", diemmonhoc.getMadiemmonhoc());
-        assertEquals("INT1448", diemmonhoc.getMamonhoc());
-        assertEquals("B17DCVT143", diemmonhoc.getMasinhvien());
-        assertEquals("hk3", diemmonhoc.getMahocky());
-        assertEquals(4, diemmonhoc.getDiemcc(),0);
-        assertEquals(-2, diemmonhoc.getDiemgiuaky(),0);
-        diemmonhocDAOImp.insertDiem(diemmonhoc);
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(11, list.size());
-        connection.rollback();
-    }
-    @Test
-    public void testInsertDiemDefine() throws SQLException{
-        Connection connection = new DAOImp().createConnection();
-        connection.setAutoCommit(false);
-        System.out.println("insertDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        diemmonhoc.setMadiemmonhoc("diem92");
-        diemmonhoc.setMamonhoc("INT1448");
-        diemmonhoc.setMasinhvien("B17DCVT143");
-        diemmonhoc.setMahocky("hk3");
-        diemmonhoc.setDiemcc(11);
-        diemmonhoc.setDiemgiuaky(4);
-        assertEquals("diem92", diemmonhoc.getMadiemmonhoc());
-        assertEquals("INT1448", diemmonhoc.getMamonhoc());
-        assertEquals("B17DCVT143", diemmonhoc.getMasinhvien());
-        assertEquals("hk3", diemmonhoc.getMahocky());
-        assertEquals(11, diemmonhoc.getDiemcc(),0);
-        assertEquals(4, diemmonhoc.getDiemgiuaky(),0);
-        diemmonhocDAOImp.insertDiem(diemmonhoc);
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(11, list.size());
-        connection.rollback();
-    }
-      @Test
-    public void testInsertDiemDefine2() throws SQLException{
-        Connection connection = new DAOImp().createConnection();
-        connection.setAutoCommit(false);
-        System.out.println("insertDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        diemmonhoc.setMadiemmonhoc("diem92");
-        diemmonhoc.setMamonhoc("INT1448");
-        diemmonhoc.setMasinhvien("B17DCVT143");
-        diemmonhoc.setMahocky("hk3");
-        diemmonhoc.setDiemcc(4);
-        diemmonhoc.setDiemgiuaky(11);
-        assertEquals("diem92", diemmonhoc.getMadiemmonhoc());
-        assertEquals("INT1448", diemmonhoc.getMamonhoc());
-        assertEquals("B17DCVT143", diemmonhoc.getMasinhvien());
-        assertEquals("hk3", diemmonhoc.getMahocky());
-        assertEquals(4, diemmonhoc.getDiemcc(),0);
-        assertEquals(11, diemmonhoc.getDiemgiuaky(),0);
-        diemmonhocDAOImp.insertDiem(diemmonhoc);
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(11, list.size());
-        connection.rollback();
-    }
-    @Test
-    public void testSelectAllDiem() throws SQLException{
-        System.out.println("selectAllDiem");
-        diemmonhoc=new Diemmonhoc();
-        diemmonhocDAOImp=new DiemmonhocDAOImp();
-        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(10, list.size());
-        Diemmonhoc test = list.get(2);
-        assertEquals("diem30", test.getMadiemmonhoc());
-        assertEquals("INT1448", test.getMamonhoc());
-        assertEquals("Phát triển phần mềm hướng dịch vụ", test.getTenmonhoc());
-        assertEquals("B17DCVT143", test.getMasinhvien());
-        assertEquals("Cao Viet", test.getHosinhvien());
-        assertEquals("Hoang", test.getTensinhvien());
-        assertEquals("hk3", test.getMahocky());
-        assertEquals("Học kỳ hè", test.getTenhocky());
-        assertEquals(9.5, test.getDiemcc(),0);
-        assertEquals(2.5, test.getDiemgiuaky(),0);
-        assertEquals(0, test.getDiemcuoiky(),0);
-        assertEquals(1.7, test.getDiemtrungbinh(),0);
-    }
-
     @Test
     public void testSelectByMonhoc() throws Exception {
         System.out.println("selectByMonhoc");
@@ -206,8 +60,17 @@ public class DiemmonhocDAOImpTest {
     }
 
     @Test
-    public void testSelectDiem() throws SQLException {
+    public void testSelectByMonhocException() throws Exception {
         System.out.println("selectByMonhoc");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp();
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectByMonhoc("TEL5000");
+        assertEquals(0, list.size());
+    }
+
+    @Test
+    public void testSelectDiem() throws SQLException {
+        System.out.println("selectbyDiemmonhoc");
         diemmonhoc=new Diemmonhoc();
         diemmonhocDAOImp=new DiemmonhocDAOImp();
         Diemmonhoc list = diemmonhocDAOImp.selectDiem("diem30");
@@ -225,18 +88,224 @@ public class DiemmonhocDAOImpTest {
     }
 
     @Test
+    public void testSelectDiemException() throws SQLException {
+        System.out.println("selectbyDiemmonhoc");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp();
+        Diemmonhoc list = diemmonhocDAOImp.selectDiem("diem1000");
+        assertEquals(null, list);
+    }
+
+    @Test
+    public void testSelectAllDiem() throws SQLException{
+        System.out.println("selectAllDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp();
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(10, list.size());
+        for(int i=0;i<list.size();i++){
+            Diemmonhoc test = list.get(i);
+            Diemmonhoc compare = diemmonhocDAOImp.selectDiem(test.getMadiemmonhoc());
+            assertEquals(compare.getMadiemmonhoc(), test.getMadiemmonhoc());
+            assertEquals(compare.getMamonhoc(), test.getMamonhoc());
+            assertEquals(compare.getTenmonhoc(), test.getTenmonhoc());
+            assertEquals(compare.getMasinhvien(), test.getMasinhvien());
+            assertEquals(compare.getHosinhvien(), test.getHosinhvien());
+            assertEquals(compare.getTensinhvien(), test.getTensinhvien());
+            assertEquals(compare.getMahocky(), test.getMahocky());
+            assertEquals(compare.getTenhocky(), test.getTenhocky());
+            assertEquals(compare.getDiemcc(), test.getDiemcc(),0);
+            assertEquals(compare.getDiemgiuaky(), test.getDiemgiuaky(),0);
+            assertEquals(compare.getDiemcuoiky(), test.getDiemcuoiky(),0);
+            assertEquals(compare.getDiemtrungbinh(), test.getDiemtrungbinh(),0);
+        }
+    }
+
+    @Test
+    public void testInsertDiem() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(10);
+        diemmonhoc.setDiemgiuaky(8);
+        diemmonhoc.setDiemcuoiky(3);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        //Get insert record from db
+        Diemmonhoc inserted = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        //Compare
+        assertEquals(inserted.getMadiemmonhoc(), diemmonhoc.getMadiemmonhoc());
+        assertEquals(inserted.getMamonhoc(), diemmonhoc.getMamonhoc());
+        assertEquals(inserted.getMasinhvien(), diemmonhoc.getMasinhvien());
+        assertEquals(inserted.getMahocky(), diemmonhoc.getMahocky());
+        assertEquals(inserted.getDiemcc(), diemmonhoc.getDiemcc(),0);
+        assertEquals(inserted.getDiemgiuaky(), diemmonhoc.getDiemgiuaky(),0);
+        assertEquals(inserted.getDiemcuoiky(), diemmonhoc.getDiemcuoiky(),0);
+        assertEquals(inserted.getDiemtrungbinh(), diemmonhoc.getDiemtrungbinh(),0);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        //Check Size
+        assertEquals(records.size()+1, list.size());
+        connection.rollback();
+    }
+    @Test
+    public void testInsertDiemException1() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(-1);
+        diemmonhoc.setDiemgiuaky(4);
+        diemmonhoc.setDiemcuoiky(3);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+     @Test
+    public void testInsertDiemException2() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(-2);
+        diemmonhoc.setDiemcuoiky(3);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+    @Test
+    public void testInsertDiemException3() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(11);
+        diemmonhoc.setDiemgiuaky(4);
+        diemmonhoc.setDiemcuoiky(3);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+    @Test
+    public void testInsertDiemException4() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(11);
+        diemmonhoc.setDiemcuoiky(3);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+
+    @Test
+    public void testInsertDiemException5() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(7);
+        diemmonhoc.setDiemcuoiky(-1);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+
+    @Test
+    public void testInsertDiemException6() throws SQLException{
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        System.out.println("insertDiem");
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem92");
+        diemmonhoc.setMamonhoc("INT1448");
+        diemmonhoc.setMasinhvien("B17DCVT143");
+        diemmonhoc.setMahocky("hk3");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(7);
+        diemmonhoc.setDiemcuoiky(11);
+        diemmonhocDAOImp.insertDiem(diemmonhoc);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
+        connection.rollback();
+    }
+
+
+    @Test
     public void testDeleteDiem() throws Exception {
         System.out.println("deleteDiem");
         Connection connection = new DAOImp().createConnection();
         connection.setAutoCommit(false);
         diemmonhoc=new Diemmonhoc();
         diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        boolean res=true;
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
         diemmonhoc.setMadiemmonhoc("diem30");
         boolean b=diemmonhocDAOImp.deleteDiem(diemmonhoc);
-        assertEquals(res,b);
+        assertEquals(true,b);
         List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
-        assertEquals(9, list.size());
+        assertEquals(records.size()-1, list.size());
+        connection.rollback();
+    }
+
+    @Test
+    public void testDeleteDiemException() throws Exception {
+        System.out.println("deleteDiem");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        List<Diemmonhoc> records = diemmonhocDAOImp.selectAllDiem();
+        diemmonhoc.setMadiemmonhoc("diem1000");
+        boolean b=diemmonhocDAOImp.deleteDiem(diemmonhoc);
+        assertEquals(false,b);
+        List<Diemmonhoc> list = diemmonhocDAOImp.selectAllDiem();
+        assertEquals(records.size(), list.size());
         connection.rollback();
     }
 
@@ -247,181 +316,141 @@ public class DiemmonhocDAOImpTest {
         connection.setAutoCommit(false);
         diemmonhoc=new Diemmonhoc();
         diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-        boolean res=true;
         diemmonhoc.setMadiemmonhoc("diem30");
         diemmonhoc.setDiemcc(9);
         diemmonhoc.setDiemgiuaky(8);
         diemmonhoc.setDiemcuoiky(7);
         boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc updated = new Diemmonhoc();
+        updated = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(updated.getDiemcc(),diemmonhoc.getDiemcc(),0);
+        assertEquals(updated.getDiemtrungbinh(),diemmonhoc.getDiemtrungbinh(),0);
+        assertEquals(updated.getDiemcuoiky(),diemmonhoc.getDiemcuoiky(),0);
+        assertEquals(true,b);
         connection.rollback();
-        assertEquals(res,b);
     }
-//    @Test
-//    public void testUpdateDiemDefine() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(11);
-//        diemmonhoc.setDiemgiuaky(8);
-//        diemmonhoc.setDiemcuoiky(3);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(11, list.getDiemcc(),0);
-//        assertEquals(8, list.getDiemgiuaky(),0);
-//        assertEquals(3, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
-//        @Test
-//    public void testUpdateDiemDefine2() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(8);
-//        diemmonhoc.setDiemgiuaky(11);
-//        diemmonhoc.setDiemcuoiky(3);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(8, list.getDiemcc(),0);
-//        assertEquals(11, list.getDiemgiuaky(),0);
-//        assertEquals(3, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
-//        @Test
-//    public void testUpdateDiemDefine3() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(8);
-//        diemmonhoc.setDiemgiuaky(8);
-//        diemmonhoc.setDiemcuoiky(11);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(8, list.getDiemcc(),0);
-//        assertEquals(8, list.getDiemgiuaky(),0);
-//        assertEquals(11, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
-//    @Test
-//    public void testUpdateDiemWrong() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(-1);
-//        diemmonhoc.setDiemgiuaky(8);
-//        diemmonhoc.setDiemcuoiky(6);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(-1, list.getDiemcc(),0);
-//        assertEquals(8, list.getDiemgiuaky(),0);
-//        assertEquals(6, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
-//        @Test
-//    public void testUpdateDiemWrong2() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(8);
-//        diemmonhoc.setDiemgiuaky(-1);
-//        diemmonhoc.setDiemcuoiky(6);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(8, list.getDiemcc(),0);
-//        assertEquals(-1, list.getDiemgiuaky(),0);
-//        assertEquals(6, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
-//            @Test
-//    public void testUpdateDiemWrong3() throws Exception {
-//        System.out.println("updateDiem");
-//        Connection connection = new DAOImp().createConnection();
-//        connection.setAutoCommit(false);
-//        diemmonhoc=new Diemmonhoc();
-//        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
-//        boolean res=true;
-//        diemmonhoc.setMadiemmonhoc("diem30");
-//        diemmonhoc.setDiemcc(8);
-//        diemmonhoc.setDiemgiuaky(7);
-//        diemmonhoc.setDiemcuoiky(-1);
-//        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
-//        DiemmonhocDAOImp diemmonhocDAOImp2 =new DiemmonhocDAOImp();
-//        Diemmonhoc list = diemmonhocDAOImp2.selectDiem("diem30");
-//        assertEquals("INT1448", list.getMamonhoc());
-//        assertEquals("Phát triển phần mềm hướng dịch vụ", list.getTenmonhoc());
-//        assertEquals("B17DCVT143", list.getMasinhvien());
-//        assertEquals("Cao Viet", list.getHosinhvien());
-//        assertEquals("Hoang", list.getTensinhvien());
-//        assertEquals("hk3", list.getMahocky());
-//        assertEquals("Học kỳ hè", list.getTenhocky());
-//        assertEquals(8, list.getDiemcc(),0);
-//        assertEquals(7, list.getDiemgiuaky(),0);
-//        assertEquals(-1, list.getDiemcuoiky(),0);
-//        connection.rollback();
-//        assertEquals(res,b);
-//    }
+    @Test
+    public void testUpdateDiemException1() throws Exception {
+        System.out.println("updateDiem Exception1");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        diemmonhoc.setMadiemmonhoc("diem30");
+        diemmonhoc.setDiemcc(11);
+        diemmonhoc.setDiemgiuaky(8);
+        diemmonhoc.setDiemcuoiky(3);
+        Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+        assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+        assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+        assertEquals(false,b);
+        connection.rollback();
+
+    }
+
+    @Test
+    public void testUpdateDiemException2() throws Exception {
+        System.out.println("updateDiem Exception 2");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        diemmonhoc.setMadiemmonhoc("diem30");
+        diemmonhoc.setDiemcc(8);
+        diemmonhoc.setDiemgiuaky(11);
+        diemmonhoc.setDiemcuoiky(3);
+        Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+        assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+        assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+        assertEquals(false,b);
+        connection.rollback();
+    }
+        @Test
+    public void testUpdateDiemException3() throws Exception {
+            System.out.println("updateDiem Exception 3");
+            Connection connection = new DAOImp().createConnection();
+            connection.setAutoCommit(false);
+            diemmonhoc=new Diemmonhoc();
+            diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+            diemmonhoc.setMadiemmonhoc("diem30");
+            diemmonhoc.setDiemcc(8);
+            diemmonhoc.setDiemgiuaky(8);
+            diemmonhoc.setDiemcuoiky(11);
+            Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+            boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+            Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+            assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+            assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+            assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+            assertEquals(false,b);
+            connection.rollback();
+    }
+    @Test
+    public void testUpdateDiemException4() throws Exception {
+        System.out.println("updateDiem Exception 4");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        diemmonhoc.setMadiemmonhoc("diem30");
+        diemmonhoc.setDiemcc(-1);
+        diemmonhoc.setDiemgiuaky(8);
+        diemmonhoc.setDiemcuoiky(6);
+        Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+        assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+        assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+        assertEquals(false,b);
+        connection.rollback();
+    }
+
+    @Test
+    public void testUpdateDiemException5() throws Exception {
+        System.out.println("updateDiem Exception 5");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        diemmonhoc.setMadiemmonhoc("diem30");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(-1);
+        diemmonhoc.setDiemcuoiky(6);
+        Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+        assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+        assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+        assertEquals(false,b);
+        connection.rollback();
+    }
+
+    @Test
+    public void testUpdateDiemException6() throws Exception {
+        System.out.println("updateDiem Exception 6");
+        Connection connection = new DAOImp().createConnection();
+        connection.setAutoCommit(false);
+        diemmonhoc=new Diemmonhoc();
+        diemmonhocDAOImp=new DiemmonhocDAOImp(connection);
+        diemmonhoc.setMadiemmonhoc("diem30");
+        diemmonhoc.setDiemcc(4);
+        diemmonhoc.setDiemgiuaky(8);
+        diemmonhoc.setDiemcuoiky(-1);
+        Diemmonhoc beforeUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        boolean b=diemmonhocDAOImp.updateDiem(diemmonhoc);
+        Diemmonhoc afterUpdate = diemmonhocDAOImp.selectDiem(diemmonhoc.getMadiemmonhoc());
+        assertEquals(afterUpdate.getDiemcc(), beforeUpdate.getDiemcc(),0);
+        assertEquals(afterUpdate.getDiemgiuaky(), beforeUpdate.getDiemgiuaky(),0);
+        assertEquals(afterUpdate.getDiemcuoiky(), beforeUpdate.getDiemcuoiky(),0);
+        assertEquals(false,b);
+        connection.rollback();
+    }
 }
