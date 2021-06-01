@@ -43,6 +43,7 @@ public class SeleniumTestUpdate {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
       @Test
     public void updateDiemWrong1() throws SQLException {
@@ -68,9 +69,10 @@ public class SeleniumTestUpdate {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
      @Test
-    public void updateDiemWrong2() throws SQLException {
+    public void updateDiemWrong2() throws SQLException,NumberFormatException{
         Diemmonhoc diemmonhoc=new Diemmonhoc();
     	System.setProperty("webdriver.chrome.driver","C:/Users/HoangCV-TamCT/Documents/NetBeansProjects/mavenproject7/chromedriver.exe");
 	WebDriver driver=new ChromeDriver();
@@ -93,5 +95,6 @@ public class SeleniumTestUpdate {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
 }
