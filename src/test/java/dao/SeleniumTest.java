@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.sql.Connection;
@@ -50,6 +45,7 @@ public class SeleniumTest {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
     }
     @Test
     public void updateDiem() throws SQLException {
@@ -89,6 +85,7 @@ public class SeleniumTest {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
     }
         @Test
     public void selectAllDiem() throws SQLException {
@@ -96,6 +93,10 @@ public class SeleniumTest {
 	WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://localhost:8080/mavenproject7/show?mamonhoc=all");
+                String actualUrl="http://localhost:8080/mavenproject7/show?mamonhoc=all";
+        String expectedUrl= driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
 }
             @Test
     public void selectDiem() throws SQLException {
@@ -103,6 +104,21 @@ public class SeleniumTest {
 	WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://localhost:8080/mavenproject7/show?mamonhoc=INT1448");
+        String actualUrl="http://localhost:8080/mavenproject7/show?mamonhoc=INT1448";
+        String expectedUrl= driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
+}
+                @Test
+    public void selectDiemWrong() throws SQLException {
+    	System.setProperty("webdriver.chrome.driver","C:/Users/HoangCV-TamCT/Documents/NetBeansProjects/mavenproject7/chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("http://localhost:8080/mavenproject7/show?mamonhoc=INT1447");
+        String actualUrl="http://localhost:8080/mavenproject7/show?mamonhoc=INT1447";
+        String expectedUrl= driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
 }
 @Test
     public void selectDS() throws SQLException {
@@ -110,6 +126,10 @@ public class SeleniumTest {
 	WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://localhost:8080/mavenproject7/thongke?mamonhoc=INT1448");
+        String actualUrl="http://localhost:8080/mavenproject7/thongke?mamonhoc=INT1448";
+        String expectedUrl= driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
 }
     @Test
     public void selectPageAdd() throws SQLException {
@@ -122,19 +142,22 @@ public class SeleniumTest {
         String actualUrl="http://localhost:8080/mavenproject7/new";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
 }
         @Test
     public void selectPageUpdate() throws SQLException {
     	System.setProperty("webdriver.chrome.driver","C:/Users/HoangCV-TamCT/Documents/NetBeansProjects/mavenproject7/chromedriver.exe");
 	WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://localhost:8080/mavenproject7/show");
+        driver.get("http://localhost:8080/mavenproject7/show?mamonhoc=all");
         WebElement submit=driver.findElement(By.name("edit"));
         submit.click();
-        String actualUrl="http://localhost:8080/mavenproject7/edit?madiemmonhoc=diem59";
+        String actualUrl="http://localhost:8080/mavenproject7/edit?madiemmonhoc=diem1";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
-}        @Test
+        driver.close();
+}       
+    @Test
     public void selectPagePrint() throws SQLException {
     	System.setProperty("webdriver.chrome.driver","C:/Users/HoangCV-TamCT/Documents/NetBeansProjects/mavenproject7/chromedriver.exe");
 	WebDriver driver=new ChromeDriver();
@@ -145,7 +168,9 @@ public class SeleniumTest {
         String actualUrl="http://localhost:8080/mavenproject7/thongke";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
 }
+    @Test
 public void deleteDiem() throws SQLException {
         Connection connection = new DAOImp().createConnection();
         connection.setAutoCommit(false);
@@ -182,5 +207,6 @@ public void deleteDiem() throws SQLException {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
     }
 }
