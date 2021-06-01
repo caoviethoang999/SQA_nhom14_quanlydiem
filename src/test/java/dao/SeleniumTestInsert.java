@@ -51,9 +51,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
    @Test
     public void insertDiemWrong2() throws SQLException {
@@ -83,9 +84,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
        @Test
     public void insertDiemWrong3() throws SQLException {
@@ -118,6 +120,8 @@ public class SeleniumTestInsert {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
+        
     }
           @Test
     public void insertDiemWrong4() throws SQLException {
@@ -150,6 +154,7 @@ public class SeleniumTestInsert {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong5() throws SQLException {
@@ -182,6 +187,7 @@ public class SeleniumTestInsert {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong6() throws SQLException {
@@ -214,6 +220,7 @@ public class SeleniumTestInsert {
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong7() throws SQLException {
@@ -243,9 +250,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong8() throws SQLException {
@@ -275,9 +283,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong9() throws SQLException {
@@ -307,9 +316,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
              @Test
     public void insertDiemWrong10() throws SQLException {
@@ -339,9 +349,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
               @Test
     public void insertDiemWrong11() throws SQLException {
@@ -371,9 +382,10 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
               @Test
     public void insertDiemWrong12() throws SQLException {
@@ -403,8 +415,9 @@ public class SeleniumTestInsert {
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
         driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
-        String actualUrl="http://localhost:8080/mavenproject7/insert";
+        String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+            driver.close();
     }
 }
