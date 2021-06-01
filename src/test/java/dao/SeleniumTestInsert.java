@@ -50,7 +50,7 @@ public class SeleniumTestInsert {
         diemchuyencan.sendKeys(String.valueOf(diemmonhoc.getDiemcc()));
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
-        driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
+        driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92dsadasdasdas");
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
@@ -83,7 +83,7 @@ public class SeleniumTestInsert {
         diemchuyencan.sendKeys(String.valueOf(diemmonhoc.getDiemcc()));
         diemgiuaky.sendKeys(String.valueOf(diemmonhoc.getDiemgiuaky()));
         submit.click();
-        driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=diem92");
+        driver.get("http://localhost:8080/mavenproject7/delete?madiemmonhoc=");
         String actualUrl="http://localhost:8080/mavenproject7/show";
         String expectedUrl= driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
