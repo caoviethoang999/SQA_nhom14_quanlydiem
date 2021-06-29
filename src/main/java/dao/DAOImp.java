@@ -8,7 +8,7 @@ public class DAOImp implements DAO{
     Connection connection;
     private String jdbcURL = "jdbc:mysql://localhost:3306/quanlydiem?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "huy123";
+    private String jdbcPassword = "123";
     @Override
     public Connection createConnection() {
         try {
